@@ -1,0 +1,231 @@
+body, html {
+    height: 100%;
+}
+body {
+    font-size: 1.5em;
+/*    min-width: 480px;*/
+    width: 100%;
+    margin: auto;
+    position: absolute;
+/*
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+*/
+/*    background-color: #06AED5;*/
+}
+#banner {
+    top: 0;
+    display: flex;
+    position: fixed;
+/*    justify-content: flex-end;*/
+    align-items: center;
+    width: 100%;
+/*    min-width: 600px;*/
+    height: 46px;
+    padding: 0 5%;
+    background-color: #086788;
+    box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.signin_up {
+    padding: .375rem .375rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 46px;
+    height: 100%;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+
+.custom_btn::before {
+    position: absolute;
+    font-size: 24px;
+    color: #555555;
+    top: 50%;
+    left: 50%;
+    transform: translate(-38%, -55%);
+    z-index: 1;
+}
+
+.custom_btn::after {
+    content:"";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(240, 200, 8, 1);
+    box-shadow: 1px 2px 12px 0px rgba(0, 0, 0, 0.3);
+/*    transform: translateY(-50%) translateX(-50%);*/
+}
+
+.custom_btn {
+    position: relative;
+    margin: auto;
+/*
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+*/
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    transition: transform 0.36s;
+}
+
+.custom_btn:checked {
+/*    transform: translate(-50%, calc(100% + 100px));*/
+}
+
+.delete_check {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.delete_check_window {
+    margin: auto;
+    align-content: center;
+    background-color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    box-shadow: 0 1px 12px 0px rgba(0, 0, 0, 0.7);
+}
+
+.delete_check_window .btn {
+    margin: auto; 
+    width: 20%;
+}
+
+#delete_btn:checked ~ .delete_check{
+    display: flex;
+}
+
+#delete_btn {
+    margin: 0;
+}
+
+#delete_btn:before {
+    transform: translate(-46%, -50%);
+}
+#delete_btn:after {
+    background-color: rgba(255,36,36, 1);
+}
+
+/*
+#delete_btn:checked + #edit_msg {
+    transform: translateY(0%);
+}
+*/
+
+#edit_btn {
+    margin: 0 0 0 auto;
+    transition: transform 0.36s;
+}
+
+#edit_btn:checked {
+    transform: translateY(200%);
+}
+
+#edit_btn:checked ~ #save_btn{
+    transform: translateY(0);
+}
+
+#edit_btn:checked::after {
+    box-shadow: none;
+}
+
+#save_btn {
+    position: absolute;
+    transform: translateY(200%);
+    height: 50px;
+    width: 100%;
+    z-index: 2;
+    transition: transform 0.3s;
+}
+
+#edit_msg {
+/*    position: absolute;*/
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 24px 0 0 0;
+    margin: auto 5%;
+    z-index: 2;
+}
+ 
+#edit_msg textarea, #edit_msg input {
+    width: 100%;
+}
+
+#edit_msg textarea:disabled, #edit_msg input:disabled {
+    background-color: #f0f0f0;
+}
+
+#content_string {
+    min-height: 60px;
+    resize: none;
+}
+
+.edit_msg_out {
+/*    position: relative;*/
+/*    flex-grow: 1;*/
+    flex-direction: column;
+}
+
+.func_area {
+    height: 56px;
+    padding: 0 5%;
+/*    margin-bottom: 6px;*/
+    overflow: hidden;
+}
+
+.func_area > div {
+    padding: 0 0 6px 0;
+}
+
+
+.flex {
+    display: flex;
+    position: relative;
+}
+.flex-end {
+    align-self: flex-end;
+}
+.flex-grow1 {
+    flex-grow: 1;
+}
+
+.h56px {
+    height: 56px;
+}
+.w50 {
+    width: 50%;
+}
+
+#home {
+    display: flex;
+    line-height: 100%;
+/*    height: 100%;*/
+    align-items: center;
+}
+#group1 {
+    margin-left: auto;   
+}

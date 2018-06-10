@@ -1,0 +1,28 @@
+1.首先確認LAMP環境有裝起來
+
+2.之後編輯/etc/mysql/my.cnf,裡面加上以下的設定,之後停止mysql服務後再重啟(以下設定在之後建立新資料庫時預設會用utf8編碼):
+[mysqld]
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+3.在放settingup.sql的資料夾(如這個專案的資料夾)下以同樣路徑開啟終端機,之後登入mysql的root帳號
+
+4.mysql文字界面中打上: source settingup.sql 
+
+5.設定apache2設定檔 /etc/apache2/sites-available/000-default.conf
+在<VirtualHost *:80>裡加上以下設定並儲存(路徑隨喜,要注意是絕對路徑):
+DocumentRoot /path_to/simple_todo/php_server
+<Directory /path_to/simple_todo/php_server/>
+	Options FollowSymLinks
+	AllowOverride None
+	Require all granted
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f 
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php [L]
+</Directory>
+
+6.之後 sudo service apache2 restart 重啟apache2,並確認網站可以運作
+
+
+ps.這個專案的sql資料夾需要跟php_server資料夾兩個放在同一個資料夾中,要移動的話就要改程式
